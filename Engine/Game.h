@@ -3,6 +3,7 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
+#include "Grid.h"
 
 class Game
 {
@@ -20,6 +21,7 @@ private:
 private:
 	MainWindow& wnd;
 	Graphics gfx;
+	Grid grid;
 	/********************************/
 	/*  User Variables              */
 	/********************************/
