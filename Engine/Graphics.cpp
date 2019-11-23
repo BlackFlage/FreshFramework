@@ -296,6 +296,44 @@ void Graphics::PutPixel( int x,int y,Color c )
 	pSysBuffer[Graphics::ScreenWidth * y + x] = c;
 }
 
+void Graphics::DrawRectangle(int x, int y, int width, int height, Color c)
+{
+	for (int i = 0; i < height; i++)
+	{
+		for (int j = 0; j < width; j++)
+		{
+			PutPixel(j + x, i + y, c);
+		}
+	}
+}
+
+void Graphics::DrawSprite(int x, int y, Surface & s)
+{
+	for (int i = 0; i < s.GetHeight(); i++)
+	{
+		for (int j = 0; j < s.GetWidth(); j++)
+		{
+			PutPixel( j + x, i + y, s.GetPixel(j, i) );
+		}
+	}
+}
+
+void Graphics::DrawSpriteChroma(int x, int y, Surface & s, Color chroma)
+{
+		for (int i = 0; i < s.GetHeight(); i++)
+		{
+			for (int j = 0; j < s.GetWidth(); j++)
+			{
+				Color pixel = s.GetPixel(j, i);
+
+				if (pixel != chroma)
+				{
+					PutPixel(j + x, i + y, s.GetPixel(j, i));
+				}
+			}
+		}
+}
+
 
 //////////////////////////////////////////////////
 //           Graphics Exception

@@ -4,6 +4,7 @@
 #include <wrl.h>
 #include "DXException.h"
 #include "Colors.h"
+#include "Surface.h"
 
 class Graphics
 {
@@ -37,6 +38,9 @@ public:
 		PutPixel( x,y,{ unsigned char( r ),unsigned char( g ),unsigned char( b ) } );
 	}
 	void PutPixel( int x,int y,Color c );
+	void DrawRectangle( int x, int y, int width, int height, Color c);
+	void DrawSprite( int x, int y, Surface& s );
+	void DrawSpriteChroma(int x, int y, Surface& s, Color chroma);
 	~Graphics();
 private:
 	Microsoft::WRL::ComPtr<IDXGISwapChain>				pSwapChain;
