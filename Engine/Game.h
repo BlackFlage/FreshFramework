@@ -4,6 +4,8 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Grid.h"
+#include "Vector2.h"
+#include "Snake.h"
 
 class Game
 {
@@ -24,5 +26,10 @@ private:
 	Grid grid;
 	/********************************/
 	/*  User Variables              */
+	Vector2 vec = Vector2(150, 130);
+	int frameCounter = 0;
+	int step = 25;
+	char input = 'W';
+	Snake snake;
 	/********************************/
 };
