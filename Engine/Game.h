@@ -26,10 +26,11 @@ private:
 	Grid grid;
 	/********************************/
 	/*  User Variables              */
-	Vector2 vec = Vector2(150, 130);
 	int frameCounter = 0;
 	int step = 25;
 	char input = 'W';
+	int counter = 0;
+	int steppy = 10;
 	Snake snake;
 	/********************************/
 };

@@ -6,7 +6,6 @@ class Grid
 {
 public:
 	void Draw( Snake& snake, Graphics & gfx);
-
 private:
 	static constexpr int tilesWidth = 40;
 	static constexpr int tilesHeight = 40;

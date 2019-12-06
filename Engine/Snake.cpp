@@ -12,12 +12,48 @@ void Snake::Move()
 	headPosition += deltaPos;
 }
 
-void Snake::Update()
+void Snake::Grow()
 {
+	actualSegments++;
+
+	if (actualSegments > 1)
+	{
+		segments[actualSegments - 1].SetPosition(segments[actualSegments - 2].GetPosition());
+	}
+	else
+	{
+		segments[0].SetPosition(headPosition);
+	}
+}
+
+void Snake::Update(char input)
+{
+	SetDelta(input);
+	SegmentsFollow();
 	Move();
 }
 
-void Snake::GetInput(char input)
+int Snake::GetActualSegments() const
+{
+	return actualSegments;
+}
+
+void Snake::SegmentsFollow()
+{
+	for (int i = actualSegments - 1; i >= 0; i--)
+	{
+		if (i != 0)
+		{
+			segments[i].SetPosition(segments[i - 1].GetPosition());
+		}
+		else
+		{
+			segments[i].SetPosition(headPosition);
+		}
+	}
+}
+
+void Snake::SetDelta(char input)
 {
 	switch (input)
 	{
@@ -39,6 +75,11 @@ void Snake::GetInput(char input)
 Color Snake::GetHeadColor() const
 { 
 	return headColor;
+}
+
+Segment Snake::GetSegment(int segmentIndex) const
+{
+	return segments[segmentIndex];
 }
 
 Vector2 Snake::GetPosition() const

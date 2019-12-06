@@ -38,10 +38,18 @@ void Game::UpdateModel()
 		input = 'S';
 	}
 
+
+
 	while (frameCounter >= step)
 	{
-		snake.GetInput(input);
-		snake.Update();
+		snake.Update(input);
+		counter++;
+
+		while (counter >= steppy)
+		{
+			snake.Grow();
+			counter -= steppy;
+		}
 
 		frameCounter -= step;
 	}
