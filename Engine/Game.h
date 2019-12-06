@@ -1,11 +1,12 @@
 #pragma once
 
 #include "Keyboard.h"
-#include "Mouse.h"
 #include "Graphics.h"
-#include "Grid.h"
 #include "Vector2.h"
+#include "Surface.h"
+#include "Mouse.h"
 #include "Snake.h"
+#include "Grid.h"
 
 class Game
 {
@@ -27,10 +28,9 @@ private:
 	/********************************/
 	/*  User Variables              */
 	int frameCounter = 0;
-	int step = 25;
+	int step = 30;
+	int scoreStep = 3;
 	char input = 'W';
-	int counter = 0;
-	int steppy = 10;
-	Snake snake;
+	Surface gameOver = Surface("GameOver.bmp", Colors::Magenta);
 	/********************************/
 };

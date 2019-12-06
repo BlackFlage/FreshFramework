@@ -5,7 +5,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd ),
-	snake({1, 5}, Colors::Blue)
+	grid(step)
 {
 }
 
@@ -19,44 +19,44 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	frameCounter++;
-
-	if (wnd.kbd.KeyIsPressed('A'))
+	if (!grid.GameOver())
 	{
-		input = 'A';
-	}
-	else if (wnd.kbd.KeyIsPressed('D'))
-	{
-		input = 'D';
-	}
-	else if (wnd.kbd.KeyIsPressed('W'))
-	{
-		input = 'W';
-	}
-	else if (wnd.kbd.KeyIsPressed('S'))
-	{
-		input = 'S';
-	}
+		frameCounter++;
 
-
-
-	while (frameCounter >= step)
-	{
-		snake.Update(input);
-		counter++;
-
-		while (counter >= steppy)
+		if (wnd.kbd.KeyIsPressed('A'))
 		{
-			snake.Grow();
-			counter -= steppy;
+			input = 'A';
+		}
+		else if (wnd.kbd.KeyIsPressed('D'))
+		{
+			input = 'D';
+		}
+		else if (wnd.kbd.KeyIsPressed('W'))
+		{
+			input = 'W';
+		}
+		else if (wnd.kbd.KeyIsPressed('S'))
+		{
+			input = 'S';
 		}
 
-		frameCounter -= step;
+		while (frameCounter >= step)
+		{
+			grid.Update(input);
+
+			frameCounter -= step;
+		}
 	}
 }
 
 void Game::ComposeFrame()
 {
-	Vector2 xd = { 300, 260 };
-	grid.Draw(snake, gfx);
+	if (!grid.GameOver())
+	{
+		grid.Draw(gfx);
+	}
+	else
+	{
+		gfx.DrawSpriteChroma(130, 150, gameOver, Colors::Magenta);
+	}
 }

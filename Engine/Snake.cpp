@@ -26,9 +26,8 @@ void Snake::Grow()
 	}
 }
 
-void Snake::Update(char input)
+void Snake::Update()
 {
-	SetDelta(input);
 	SegmentsFollow();
 	Move();
 }
@@ -36,6 +35,11 @@ void Snake::Update(char input)
 int Snake::GetActualSegments() const
 {
 	return actualSegments;
+}
+
+bool Snake::LoseCondition(int gridWidth, int gridHeight)
+{
+	return SegmentsColliding() || ScreenColliding(gridWidth, gridHeight);
 }
 
 void Snake::SegmentsFollow()
@@ -70,6 +74,33 @@ void Snake::SetDelta(char input)
 		deltaPos = { 0, 1 };
 		break;
 	}
+}
+
+bool Snake::ScreenColliding(int gridWidth, int gridHeight) const
+{
+	return headPosition.x + deltaPos.x < 0 ||
+		   headPosition.x + deltaPos.x > gridWidth - 1 ||
+		   headPosition.y + deltaPos.y < 0 ||
+		   headPosition.y + deltaPos.y > gridHeight - 1;
+}
+
+bool Snake::SegmentsColliding()
+{
+	for (int i = 1; i < actualSegments; i++)
+	{
+		if (headPosition == segments[i].GetPosition())
+		{
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+bool Snake::CollidingWithApple(Apple & apple)
+{
+
+	return headPosition == apple.GetPosition();
 }
 
 Color Snake::GetHeadColor() const
