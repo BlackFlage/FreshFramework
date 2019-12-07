@@ -149,6 +149,7 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Surface.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="COMInitializer.cpp" />
@@ -162,6 +163,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="Snape.cpp" />
     <ClCompile Include="Surface.cpp" />
+    <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="FramebufferPS.hlsl">
