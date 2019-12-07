@@ -18,17 +18,7 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	vec1 + vec2;
-	vec1 - vec2;
-	vec1 * vec2;
-	vec1 / vec2;
-	vec1 += vec2;
-	vec1 -= vec2;
-	vec1 *= vec2;
-	vec1 /= vec2;
-	vec1 == vec2;
-	vec1 != vec2;
-	vec1 = vec2;
+	grid.Update();
 }
 
 void Game::ComposeFrame()

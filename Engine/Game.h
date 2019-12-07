@@ -23,8 +23,6 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 	Grid grid;
-	Vector2 vec1 = {100, 200};
-	Vector2 vec2 = Vector2(300, 400);
 	/********************************/
 	/*  User Variables              */
 	/********************************/
