@@ -2,8 +2,8 @@
 
 Vector2::Vector2(int inX, int inY)
 {
-	inX = x;
-	inY = y;
+	x = inX;
+	y = inY;
 }
 
 Vector2 Vector2::operator+(Vector2 rhs)

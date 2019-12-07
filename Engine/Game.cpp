@@ -18,6 +18,17 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	vec1 + vec2;
+	vec1 - vec2;
+	vec1 * vec2;
+	vec1 / vec2;
+	vec1 += vec2;
+	vec1 -= vec2;
+	vec1 *= vec2;
+	vec1 /= vec2;
+	vec1 == vec2;
+	vec1 != vec2;
+	vec1 = vec2;
 }
 
 void Game::ComposeFrame()
