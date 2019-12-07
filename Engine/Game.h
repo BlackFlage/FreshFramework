@@ -23,6 +23,9 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 	Grid grid;
+	char input = 'W';
+	int counter = 0;
+	int step = 30;
 	/********************************/
 	/*  User Variables              */
 	/********************************/

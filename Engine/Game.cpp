@@ -18,7 +18,28 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	grid.Update();
+	counter++;
+	if (wnd.kbd.KeyIsPressed('W'))
+	{
+		input = 'W';
+	}
+	else if (wnd.kbd.KeyIsPressed('S'))
+	{
+		input = 'S';
+	}
+	else if (wnd.kbd.KeyIsPressed('A'))
+	{
+		input = 'A';
+	}
+	else if (wnd.kbd.KeyIsPressed('D'))
+	{
+		input = 'D';
+	}
+	if (counter >= step)
+	{
+		grid.Update(input);
+		counter = 0;
+	}
 }
 
 void Game::ComposeFrame()

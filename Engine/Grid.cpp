@@ -12,7 +12,8 @@ void Grid::Draw(Graphics & gfx)
 	gfx.DrawRectangle(snake.GetPosition().x * tilesWidth, snake.GetPosition().y * tilesHeight, tilesWidth, tilesHeight, snake.GetColor());
 }
 
-void Grid::Update()
+void Grid::Update(char input)
 {
+	snake.TakeInput(input);
 	snake.Move();
 }

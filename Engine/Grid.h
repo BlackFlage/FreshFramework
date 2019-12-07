@@ -7,7 +7,7 @@ class Grid
 public:
 	Grid();
 	void Draw(Graphics & gfx);
-	void Update();
+	void Update(char input);
 
 private:
 	static constexpr int tilesWidth = 40;
