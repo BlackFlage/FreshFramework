@@ -2,6 +2,7 @@
 
 struct Vector2
 {
+	Vector2() = default;
 	Vector2(int inX, int inY);
 	int x;
 	int y;

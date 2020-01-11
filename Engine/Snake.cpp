@@ -47,3 +47,19 @@ Color Snake::GetColor() const
 {
 	return color;
 }
+
+Segment::Segment(Vector2 inPos)
+	:
+	position(inPos)
+{
+}
+
+void Segment::Move(Vector2 inPos)
+{
+	position = inPos;
+}
+
+Vector2 Segment::GetPosition() const
+{
+	return position;
+}
