@@ -16,4 +16,5 @@ void Grid::Update(char input)
 {
 	snake.TakeInput(input);
 	snake.Move();
+	snake.MoveSegments();
 }

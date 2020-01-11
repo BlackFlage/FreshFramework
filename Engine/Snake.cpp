@@ -48,6 +48,21 @@ Color Snake::GetColor() const
 	return color;
 }
 
+void Snake::Grow()
+{
+	actualSegments++;
+}
+
+void Snake::MoveSegments()
+{
+	for (int i = actualSegments - 1; i > 0; i--)
+	{
+		segments[i].Move(segments[i - 1].GetPosition());
+	}
+	
+	segments[0].Move(position);
+}
+
 Segment::Segment(Vector2 inPos)
 	:
 	position(inPos)

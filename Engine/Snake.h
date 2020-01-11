@@ -22,6 +22,8 @@ public:
 	void TakeInput(char k);
 	Vector2 GetPosition() const;
 	Color GetColor() const;
+	void Grow();
+	void MoveSegments();
 private:
 	Color color=Colors::Green;
 	Vector2 position;
