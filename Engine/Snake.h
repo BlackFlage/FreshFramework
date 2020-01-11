@@ -32,6 +32,6 @@ private:
 	Vector2 position;
 	Vector2 delta = { 0, -1 };
 	static constexpr int maxSegments = 299;
-	int actualSegments = 3;
+	int actualSegments = 0;
 	Segment segments[maxSegments];
 };

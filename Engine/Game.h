@@ -5,6 +5,7 @@
 #include "Graphics.h"
 #include "Grid.h"
 #include "Vector2.h"
+#include "Timer.h"
 
 class Game
 {
@@ -22,10 +23,11 @@ private:
 private:
 	MainWindow& wnd;
 	Graphics gfx;
+	Timer t;
 	Grid grid;
 	char input = 'W';
-	int counter = 0;
-	int step = 30;
+	float timePassed = 0.0f;
+	float step = 0.3f;
 	/********************************/
 	/*  User Variables              */
 	/********************************/

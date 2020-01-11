@@ -18,7 +18,8 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	counter++;
+	timePassed += t.GetDeltaTime();
+	
 	if (wnd.kbd.KeyIsPressed('W'))
 	{
 		input = 'W';
@@ -35,10 +36,11 @@ void Game::UpdateModel()
 	{
 		input = 'D';
 	}
-	if (counter >= step)
+
+	while (timePassed >= step)
 	{
 		grid.Update(input);
-		counter = 0;
+		timePassed -= step;
 	}
 }
 
