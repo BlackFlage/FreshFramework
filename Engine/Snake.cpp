@@ -63,6 +63,16 @@ void Snake::MoveSegments()
 	segments[0].Move(position);
 }
 
+int Snake::GetActualSegments()
+{
+	return actualSegments;
+}
+
+Segment Snake::GetSegments(int segmentIndex) const
+{
+	return segments[segmentIndex];
+}
+
 Segment::Segment(Vector2 inPos)
 	:
 	position(inPos)
@@ -77,4 +87,9 @@ void Segment::Move(Vector2 inPos)
 Vector2 Segment::GetPosition() const
 {
 	return position;
+}
+
+Color Segment::GetColor() const
+{
+	return color;
 }
