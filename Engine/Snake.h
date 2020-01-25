@@ -1,6 +1,7 @@
 #pragma once
 #include "Vector2.h"
 #include "Colors.h"
+#include<vector>
 
 class Segment
 {
@@ -25,13 +26,11 @@ public:
 	Color GetColor() const;
 	void Grow();
 	void MoveSegments();
-	int GetActualSegments();
-	Segment GetSegments(int segmentIndex) const;
+	Segment GetSegment(int segmentIndex) const;
+	int GetActualSegments() const;
 private:
 	Color color=Colors::Green;
 	Vector2 position;
 	Vector2 delta = { 0, -1 };
-	static constexpr int maxSegments = 299;
-	int actualSegments = 0;
-	Segment segments[maxSegments];
+	std::vector<Segment> segments;
 };

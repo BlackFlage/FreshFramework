@@ -50,27 +50,31 @@ Color Snake::GetColor() const
 
 void Snake::Grow()
 {
-	actualSegments++;
+	segments.emplace_back();
 }
 
 void Snake::MoveSegments()
 {
-	for (int i = actualSegments - 1; i > 0; i--)
+	if ((int)segments.size() > 0)
 	{
-		segments[i].Move(segments[i - 1].GetPosition());
+		for (int i = (int)segments.size() - 1; i > 0; i--)
+		{
+			segments.at(i).Move(segments.at(i - 1).GetPosition());
+		}
+
+		segments.at(0).Move(position);
 	}
-	
-	segments[0].Move(position);
+	}
+
+
+Segment Snake::GetSegment(int segmentIndex) const
+{
+	return segments.at(segmentIndex);
 }
 
-int Snake::GetActualSegments()
+int Snake::GetActualSegments() const
 {
-	return actualSegments;
-}
-
-Segment Snake::GetSegments(int segmentIndex) const
-{
-	return segments[segmentIndex];
+	return (int)segments.size();
 }
 
 Segment::Segment(Vector2 inPos)

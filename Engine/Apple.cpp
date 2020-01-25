@@ -17,7 +17,7 @@ void Apple::Spawn(Snake& snake)
 		{
 			for (int i = 0; i < snake.GetActualSegments(); i++)
 			{
-				if (pos == snake.GetSegments(i).GetPosition())
+				if (pos == snake.GetSegment(i).GetPosition())
 				{
 					found = true;
 				}
