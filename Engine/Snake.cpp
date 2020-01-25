@@ -66,6 +66,10 @@ void Snake::MoveSegments()
 	}
 	}
 
+void Snake::Cut()
+{
+	segments.pop_back();
+}
 
 Segment Snake::GetSegment(int segmentIndex) const
 {

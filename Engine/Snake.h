@@ -26,11 +26,13 @@ public:
 	Color GetColor() const;
 	void Grow();
 	void MoveSegments();
+	void Cut();
 	Segment GetSegment(int segmentIndex) const;
 	int GetActualSegments() const;
 private:
 	Color color=Colors::Green;
 	Vector2 position;
 	Vector2 delta = { 0, -1 };
+
 	std::vector<Segment> segments;
 };

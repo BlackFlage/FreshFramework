@@ -25,6 +25,7 @@ private:
 	Graphics gfx;
 	Timer t;
 	Grid grid;
+	bool isOver = false;
 	char input = 'W';
 	float timePassed = 0.0f;
 	float step = 0.3f;

@@ -1,9 +1,10 @@
 #include "Grid.h"
 
-Grid::Grid()
+Grid::Grid(float& outStep)
 	:
 	snake({6, 10})
 {
+	step = &outStep;
 	apple.Spawn(snake);
 }
 
@@ -29,6 +30,7 @@ void Grid::Update(char input)
 	Eating();
 	snake.MoveSegments();
 	snake.Move();
+	HandleObstacle();
 }
 
 void Grid::Eating()
@@ -38,4 +40,32 @@ void Grid::Eating()
 		snake.Grow();
 		apple.Spawn(snake);
 	}
+}
+
+void Grid::HandleObstacle()
+{
+	Obstacle object = obstacles[snake.GetPosition().y * 
+							    Graphics::ScreenWidth / 
+								tilesWidth + 
+							    snake.GetPosition().x];
+
+	switch (object)
+	{
+	case Obstacle::muschroom:
+		snake.Cut();
+		break;
+	case Obstacle::poison:
+		*step -= stepDecrease;
+		break;
+	case Obstacle::stone:
+		isOver = false;
+		break;
+	default:
+		break;
+	}
+}
+
+bool Grid::IsOver() const
+{
+	return isOver;
 }
